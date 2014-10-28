@@ -19,12 +19,14 @@
 	</head>
 	<body>
 		<div id="canvasWrapper">
-			<canvas id="#canvas" height="600" width="1000"></canvas>
+			<canvas id="canvas" height="600" width="1000"></canvas>
 		</div>
+		<script src="js/numbers.js"></script>
 		<script src="js/city.js"></script>
+		<script src="js/silo.js"></script>
 		<script src="js/game.js"></script>
 		<script>
-			var game = new Game();
+			var game = new Game(document.getElementById('canvas'));
 			game.start();
 		</script>
 	</body>
