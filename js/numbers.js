@@ -18,6 +18,13 @@ var EXPLOSION_SPEED = 200;
 var EXPLOSION_DURATION = 500;
 var EXPLOSION_COLOR = '#ff3';
 
+var BOMB_COUNT = 250;
+var BOMB_WAVES = 30;
+var BOMB_WAVE_DURATION = 10;
+var BOMB_WAVE_FORMULA = function(wave){
+	return wave;
+}
+
 var HUD_COLOR = '#151';
 var HUD_SILO_FONT = '10pt Courier';
 var HUD_SILO_HEIGHT = 20;
