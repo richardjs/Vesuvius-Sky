@@ -88,4 +88,5 @@ Bomb.prototype.explode = function(){
 		this.x,
 		this.y
 	));
+	this.target.die()
 }

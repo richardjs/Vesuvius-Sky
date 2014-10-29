@@ -26,7 +26,7 @@ var BOMB_WAVE_FORMULA = function(wave){
 	return wave;
 }
 var BOMB_COLOR = '#c44';
-var BOMB_WIDTH = .5;
+var BOMB_WIDTH = .75;
 
 var HUD_COLOR = '#151';
 var HUD_SILO_FONT = '10pt Courier';

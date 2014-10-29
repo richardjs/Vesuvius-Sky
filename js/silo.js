@@ -4,6 +4,7 @@ function Silo(game, x){
 	this.game = game;
 	this.x = x;
 	this.ammo = MISSILE_COUNT;
+	this.alive = true;
 }
 
 Silo.prototype.fire = function(x, y){
@@ -23,6 +24,9 @@ Silo.prototype.fire = function(x, y){
 }
 
 Silo.prototype.render = function(canvas, ctx){
+	if(!this.alive){
+		return;
+	}
 	ctx.fillStyle = SILO_COLOR;
 	ctx.beginPath();
 	ctx.arc(
@@ -42,4 +46,8 @@ Silo.prototype.render = function(canvas, ctx){
 		this.x - textWidth/2,
 		canvas.height - HUD_SILO_HEIGHT 
 	);
+}
+
+Silo.prototype.die = function(){
+	this.alive = false;
 }
