@@ -7,11 +7,11 @@ function Missile(game, startx, starty, endX, endY){
 	this.x = startx;
 	this.y = starty;
 
-	var distX = endX - startx;
-	var distY = endY - starty;
-	var angle = Math.atan2(distY, distX);
+	var distx = endX - startx;
+	var disty = endY - starty;
+	var angle = Math.atan2(disty, distx);
 	var distance = Math.sqrt(
-		Math.pow(distX, 2) + Math.pow(distY, 2)
+		Math.pow(distx, 2) + Math.pow(disty, 2)
 	);
 	this.dx = Math.cos(angle) * MISSILE_SPEED;
 	this.dy = Math.sin(angle) * MISSILE_SPEED;

@@ -8,6 +8,7 @@ function Game(canvas){
 
 	this.buildings = [];
 	this.missiles = [];
+	this.bombs = [];
 	this.explosions = [];
 
 	this.elapsed = 0;
@@ -35,13 +36,15 @@ function Game(canvas){
 
 Game.prototype.update = function(delta){
 	this.elapsed += delta;
-	while(this.elapsed > bombLaunches[this.nextBomb].time){
-		console.log('launch bomb ' + this.nextBomb);
+	while(this.nextBomb < bombLaunches.length
+			&& this.elapsed > bombLaunches[this.nextBomb].time){
+		var launchData = bombLaunches[this.nextBomb];
+		this.bombs.push(new Bomb(this, launchData.target));
 		this.nextBomb++;
 	}
 
-
 	this.missiles.update(delta);
+	this.bombs.update(delta);
 	this.explosions.update(delta);
 }
 
@@ -50,6 +53,7 @@ Game.prototype.render = function(canvas, ctx){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	this.missiles.render(canvas, ctx);
 	this.buildings.render(canvas, ctx);
+	this.bombs.render(canvas, ctx);
 	this.explosions.render(canvas, ctx);
 }
 

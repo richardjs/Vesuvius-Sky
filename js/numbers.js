@@ -19,11 +19,14 @@ var EXPLOSION_DURATION = 500;
 var EXPLOSION_COLOR = '#888';
 
 var BOMB_COUNT = 250;
+var BOMB_SPEED = 75;
 var BOMB_WAVES = 30;
 var BOMB_WAVE_DURATION = 10 * 1000;
 var BOMB_WAVE_FORMULA = function(wave){
 	return wave;
 }
+var BOMB_COLOR = '#c44';
+var BOMB_WIDTH = .5;
 
 var HUD_COLOR = '#151';
 var HUD_SILO_FONT = '10pt Courier';
