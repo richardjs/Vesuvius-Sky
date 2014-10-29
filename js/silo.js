@@ -19,6 +19,7 @@ Silo.prototype.fire = function(x, y){
 			y
 		)
 	);
+	this.ammo--;
 }
 
 Silo.prototype.render = function(canvas, ctx){
@@ -32,4 +33,13 @@ Silo.prototype.render = function(canvas, ctx){
 		0
 	);
 	ctx.fill();
+
+	ctx.fillStyle = HUD_COLOR;
+	ctx.font = HUD_SILO_FONT;
+	var textWidth = ctx.measureText(this.ammo).width;
+	ctx.fillText(
+		this.ammo,
+		this.x - textWidth/2,
+		canvas.height - HUD_SILO_HEIGHT 
+	);
 }
