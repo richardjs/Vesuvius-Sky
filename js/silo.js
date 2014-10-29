@@ -3,6 +3,13 @@
 function Silo(game, x){
 	this.game = game;
 	this.x = x;
+	this.missiles = SILO_MISSILES
+}
+
+Silo.prototype.fire = function(x, y){
+	if(!this.missiles){
+		return;
+	}
 }
 
 Silo.prototype.render = function(canvas, ctx){

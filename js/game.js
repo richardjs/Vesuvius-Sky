@@ -4,6 +4,8 @@ function Game(canvas){
 	this.canvas = canvas;
 	this.ctx = this.canvas.getContext('2d');
 
+	this.controller = new Controller(this);
+
 	var slots = [];
 	var slotWidth = canvas.width / SLOTS;
 	for(var i = 0; i < SLOTS; i++){
