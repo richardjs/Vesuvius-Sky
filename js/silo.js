@@ -8,7 +8,7 @@ function Silo(game, x){
 }
 
 Silo.prototype.fire = function(x, y){
-	if(!this.ammo){
+	if(!this.alive || !this.ammo){
 		return;
 	}
 	this.game.missiles.push(
