@@ -1,0 +1,5 @@
+*	fire weapons
+*	fire bombs (scheduling)
+*	collisions
+*	building destruction
+*	restart (button?)
