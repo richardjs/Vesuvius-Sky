@@ -26,7 +26,8 @@ for(var wave = 1; wave <= BOMB_WAVES; wave++){
 	}
 
 	for(var i = 0; i < waveBombs; i++){
-		var time = 1000 * (wave - 1)*BOMB_WAVE_DURATION + Math.random()*BOMB_WAVE_DURATION;
+		var waveStartTime = (wave - 1) * BOMB_WAVE_DURATION;
+		var time = waveStartTime + Math.random()*BOMB_WAVE_DURATION;
 		var target = Math.floor(Math.random() * SLOTS);
 		bombLaunches.push(new BombLaunch(time, target));
 	}

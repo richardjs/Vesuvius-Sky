@@ -6,6 +6,13 @@ function Game(canvas){
 
 	this.controller = new Controller(this);
 
+	this.buildings = [];
+	this.missiles = [];
+	this.explosions = [];
+
+	this.elapsed = 0;
+	this.nextBomb = 0;
+
 	var slots = [];
 	var slotWidth = canvas.width / SLOTS;
 	for(var i = 0; i < SLOTS; i++){
@@ -13,7 +20,6 @@ function Game(canvas){
 		slots.push(x);
 	}
 
-	this.buildings = [];	
 	for(var i = 0; i < SLOTS; i++){
 		if(i == SILO_SLOTS[0] || i == SILO_SLOTS[1]){
 			continue;
@@ -25,12 +31,16 @@ function Game(canvas){
 	this.rightSilo = new Silo(this, slots[SILO_SLOTS[1]]);
 	this.buildings.push(this.leftSilo);
 	this.buildings.push(this.rightSilo);
-
-	this.missiles = [];
-	this.explosions = [];
 }
 
 Game.prototype.update = function(delta){
+	this.elapsed += delta;
+	while(this.elapsed > bombLaunches[this.nextBomb].time){
+		console.log('launch bomb ' + this.nextBomb);
+		this.nextBomb++;
+	}
+
+
 	this.missiles.update(delta);
 	this.explosions.update(delta);
 }
@@ -47,6 +57,7 @@ Game.prototype.start = function(){
 	var game = this;
 	var lastTime = 0;
 	function frame(time){
+		time = time || 0;
 		var delta = time - lastTime;
 		lastTime = time;
 
