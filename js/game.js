@@ -25,12 +25,22 @@ function Game(canvas){
 	this.rightSilo = new Silo(this, slots[SILO_SLOTS[1]]);
 	this.buildings.push(this.leftSilo);
 	this.buildings.push(this.rightSilo);
+
+	this.missiles = [];
+	this.explosions = [];
+}
+
+Game.prototype.update = function(delta){
+	this.missiles.update(delta);
+	this.explosions.update(delta);
 }
 
 Game.prototype.render = function(canvas, ctx){
-	this.buildings.forEach(function(building){
-		building.render(canvas, ctx);
-	});
+	ctx.fillStyle = '#002';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	this.missiles.render(canvas, ctx);
+	this.buildings.render(canvas, ctx);
+	this.explosions.render(canvas, ctx);
 }
 
 Game.prototype.start = function(){
@@ -38,7 +48,9 @@ Game.prototype.start = function(){
 	var lastTime = 0;
 	function frame(time){
 		var delta = time - lastTime;
+		lastTime = time;
 
+		game.update(delta);
 		game.render(game.canvas, game.ctx);
 
 		window.requestAnimationFrame(frame);

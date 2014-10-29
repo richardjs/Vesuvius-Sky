@@ -3,13 +3,22 @@
 function Silo(game, x){
 	this.game = game;
 	this.x = x;
-	this.missiles = SILO_MISSILES
+	this.ammo = MISSILE_COUNT;
 }
 
 Silo.prototype.fire = function(x, y){
-	if(!this.missiles){
+	if(!this.ammo){
 		return;
 	}
+	this.game.missiles.push(
+		new Missile(
+			this.game,
+			this.x,
+			this.game.canvas.height,
+			x,
+			y
+		)
+	);
 }
 
 Silo.prototype.render = function(canvas, ctx){
@@ -21,6 +30,6 @@ Silo.prototype.render = function(canvas, ctx){
 		SILO_RADIUS,
 		Math.PI,
 		0
-	)
+	);
 	ctx.fill();
 }
