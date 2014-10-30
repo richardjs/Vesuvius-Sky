@@ -46,6 +46,18 @@ Game.prototype.update = function(delta){
 	this.missiles.update(delta);
 	this.bombs.update(delta);
 	this.explosions.update(delta);
+
+	this.explosions.forEach(function(explosion){
+		this.bombs.forEach(function(bomb){
+			var distance = Math.sqrt(
+				Math.pow(bomb.x - explosion.x, 2)
+				+ Math.pow(bomb.y - explosion.y, 2) 
+			);
+			if(explosion.radius >= distance){
+				this.bombs.remove(bomb);
+			}
+		}.bind(this));
+	}.bind(this));
 }
 
 Game.prototype.render = function(canvas, ctx){
