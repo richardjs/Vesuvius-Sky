@@ -1,8 +1,9 @@
 'use strict';
 
-function BombLaunch(time, targetSlot){
+function BombLaunch(time, targetSlot, startx){
 	this.time = time;
 	this.target = targetSlot;
+	this.startx = startx;
 }
 
 var waveShares = [];
@@ -29,7 +30,9 @@ for(var wave = 1; wave <= BOMB_WAVES; wave++){
 		var waveStartTime = (wave - 1) * BOMB_WAVE_DURATION;
 		var time = waveStartTime + Math.random()*BOMB_WAVE_DURATION;
 		var target = Math.floor(Math.random() * SLOTS);
-		bombLaunches.push(new BombLaunch(time, target));
+		var canvas = document.getElementById('canvas');
+		var startx = canvas.width*Math.random(); 
+		bombLaunches.push(new BombLaunch(time, target, startx));
 	}
 }
 
@@ -38,10 +41,10 @@ bombLaunches.sort(function(a, b){
 });
 
 
-function Bomb(game, targetSlot){
+function Bomb(game, targetSlot, startx){
 	this.game = game;
 
-	this.startx = game.canvas.width*Math.random(); 
+	this.startx = startx
 	this.starty = 0;
 	this.x = this.startx;
 	this.y = this.starty;

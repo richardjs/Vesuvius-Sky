@@ -12,6 +12,9 @@ function Controller(game){
 		}else if(event.keyCode == 68){
 			event.preventDefault();
 			game.rightSilo.fire(this.mouse.x, this.mouse.y);
+		}else if(event.keyCode == 90){
+			event.preventDefault();
+			game.set_up();
 		}
 	}.bind(this));
 

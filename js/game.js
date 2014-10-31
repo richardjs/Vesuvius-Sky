@@ -5,7 +5,11 @@ function Game(canvas){
 	this.ctx = this.canvas.getContext('2d');
 
 	this.controller = new Controller(this);
+	
+	this.set_up();
+}
 
+Game.prototype.set_up = function(){
 	this.buildings = [];
 	this.missiles = [];
 	this.bombs = [];
@@ -39,7 +43,11 @@ Game.prototype.update = function(delta){
 	while(this.nextBomb < bombLaunches.length
 			&& this.elapsed > bombLaunches[this.nextBomb].time){
 		var launchData = bombLaunches[this.nextBomb];
-		this.bombs.push(new Bomb(this, launchData.target));
+		this.bombs.push(new Bomb(
+			this,
+			launchData.target,
+			launchData.startx
+		));
 		this.nextBomb++;
 	}
 
