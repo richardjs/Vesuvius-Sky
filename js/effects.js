@@ -34,6 +34,10 @@ Effects.prototype.render = function(canvas, ctx){
 }
 
 Effects.prototype.zFlash = function(){
+		var completedScreen = document.getElementById('completed');
+		var gameScreen = document.getElementById('game');
+		gameScreen.style.display = 'block';
+		completedScreen.style.display = 'none'
 	for(var y = 0; y < this.game.canvas.height; y++){
 		this.zFlashStripes.push(new ZFlashStripe(this.game, y));
 	}

@@ -67,6 +67,26 @@ Game.prototype.update = function(delta){
 			}
 		}.bind(this));
 	}.bind(this));
+
+	if(this.nextBomb == bombLaunches.length
+			&& this.bombs.length == 0
+			&& this.explosions.length == 0
+			&& this.buildings.length > 0){
+		var perfect = true;
+		this.buildings.forEach(function(building){
+			if(building instanceof City && !building.alive){
+				perfect = false;
+			}
+		});
+		if(perfect){
+			window.location = 'congrats.html';
+		}else{
+			var completedScreen = document.getElementById('completed');
+			var gameScreen = document.getElementById('game');
+			gameScreen.style.display = 'none';
+			completedScreen.style.display = 'block'
+		}
+	}
 }
 
 Game.prototype.render = function(canvas, ctx){
