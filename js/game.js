@@ -3,9 +3,7 @@
 function Game(canvas){
 	this.canvas = canvas;
 	this.ctx = this.canvas.getContext('2d');
-
 	this.controller = new Controller(this);
-	
 	this.set_up();
 }
 
@@ -17,6 +15,8 @@ Game.prototype.set_up = function(){
 
 	this.elapsed = 0;
 	this.nextBomb = 0;
+
+	this.effects = new Effects(this);
 
 	var slots = [];
 	var slotWidth = canvas.width / SLOTS;
@@ -54,6 +54,7 @@ Game.prototype.update = function(delta){
 	this.missiles.update(delta);
 	this.bombs.update(delta);
 	this.explosions.update(delta);
+	this.effects.update(delta);
 
 	this.explosions.forEach(function(explosion){
 		this.bombs.forEach(function(bomb){
@@ -75,6 +76,7 @@ Game.prototype.render = function(canvas, ctx){
 	this.buildings.render(canvas, ctx);
 	this.bombs.render(canvas, ctx);
 	this.explosions.render(canvas, ctx);
+	this.effects.render(canvas, ctx);
 }
 
 Game.prototype.start = function(){

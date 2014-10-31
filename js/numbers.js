@@ -31,3 +31,7 @@ var BOMB_WIDTH = .75;
 var HUD_COLOR = '#151';
 var HUD_SILO_FONT = '10pt Courier';
 var HUD_SILO_HEIGHT = 20;
+
+var ZFLASH_MAX_DURATION = 1.5 * 1000;
+var ZFLASH_COLOR = '#ccc';
+var ZFLASH_WIDTH = 1;

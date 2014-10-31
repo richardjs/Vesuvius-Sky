@@ -15,6 +15,7 @@ function Controller(game){
 		}else if(event.keyCode == 90){
 			event.preventDefault();
 			game.set_up();
+			game.effects.zFlash();
 		}
 	}.bind(this));
 
