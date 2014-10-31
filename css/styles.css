@@ -12,6 +12,12 @@ a{
 	color: #3f0000;
 	transition: 2s all;
 }
+a:visited{
+	color: #3f0000;
+}
+a:focus{
+	color: #3f0000;
+}
 a:hover{
 	color: #f00;
 	text-decoration: none;
