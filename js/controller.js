@@ -19,6 +19,18 @@ function Controller(game){
 		}
 	}.bind(this));
 
+	document.addEventListener('mousedown', function(event){
+		event.preventDefault();
+		if(event.button == 0){
+			game.leftSilo.fire(this.mouse.x, this.mouse.y);
+		}else if(event.button == 2){
+			game.rightSilo.fire(this.mouse.x, this.mouse.y);
+		}
+	}.bind(this));
+	document.addEventListener('contextmenu', function(event){
+		event.preventDefault();
+	});
+
 	this.game.canvas.addEventListener('mousemove', function(event){
 		var canvas = controller.game.canvas;
 		this.mouse.x = event.clientX - canvas.offsetLeft;
