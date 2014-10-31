@@ -20,11 +20,8 @@ hr{
 	border-color: #222;
 }
 
-#game, #completed{
-	background: #001800;
-}
-
 #game{
+	background: #001800;
 	height: 100vh;
 }
 canvas{
