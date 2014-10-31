@@ -1,0 +1,26 @@
+body{
+	background: #100;
+	margin: 0px;
+}
+.container{
+	background: #222;
+}
+#game, #completed{
+	background: #001800;
+}
+
+#game{
+	height: 100vh;
+}
+canvas{
+	background: #002;
+	display: block;
+	margin: 0px auto;
+}
+#canvasWrapper{
+	background: #00001a;
+}
+
+#completed{
+	display: none;
+}
