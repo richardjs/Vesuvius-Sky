@@ -70,15 +70,14 @@ Game.prototype.update = function(delta){
 
 	if(this.nextBomb == bombLaunches.length
 			&& this.bombs.length == 0
-			&& this.explosions.length == 0
-			&& this.buildings.length > 0){
-		var perfect = true;
+			&& this.explosions.length == 0){
+		var won = true;
 		this.buildings.forEach(function(building){
 			if(building instanceof City && !building.alive){
-				perfect = false;
+				won = false;
 			}
 		});
-		if(perfect){
+		if(won){
 			window.location = 'congrats.html';
 		}else{
 			var completedScreen = document.getElementById('completed');
