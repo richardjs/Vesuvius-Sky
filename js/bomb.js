@@ -37,7 +37,7 @@ for(var wave = 1; wave <= BOMB_WAVES; wave++){
 }
 
 bombLaunches.sort(function(a, b){
-	return a.time > b.time;
+	return a.time - b.time;
 });
 
 
